@@ -24,6 +24,6 @@ Route::get('/comics/{slug}', [ComicController::class, 'detailComics'])->name('de
 
 // HOMEPAGE
 
-Route::get('/', [ComicController::class, 'index'])->name('homepage');
+Route::get('/', [PagesController::class, 'index'])->name('homepage');
 
 
