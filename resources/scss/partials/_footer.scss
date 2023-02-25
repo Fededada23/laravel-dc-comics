@@ -1,10 +1,6 @@
 @import '../partials/mixins';
 @import '../partials/variables.scss';
 
-// FOOTER
-
-// prima parte footer
-
 .bg-blu {
     background-color: $blue;
 
@@ -45,15 +41,12 @@
     }
 }
 
-// seconda parte footer
-
 .jumbo-2 {
-    background-image: url('../../img/footer-bg.jpg');
+    background-image: url('../../images/footer-bg.jpg');
     background-size: cover;
-    // non uscirà nulla perchè serve il contenuto
 
     .row {
-        background-image: url('../../img/dc-logo-bg.png');
+        background-image: url('../../images/dc-logo-bg.png');
         background-position: right center;
         background-repeat: no-repeat;
         @include flex;
@@ -103,8 +96,6 @@
     }
 }
 
-// terza parte footer
-
 .social {
     background-color: rgb(52, 52, 52);
     height: 100px;
@@ -127,16 +118,13 @@
         padding: 10px;
         background-color: rgb(52, 52, 52);
         text-transform: uppercase;
-        transition: 1s;
+
 
         a {
             color: $white;
             text-decoration: none;
         }
 
-        &:hover {
-            scale: 1.2;
-        }
     }
 
     ul {

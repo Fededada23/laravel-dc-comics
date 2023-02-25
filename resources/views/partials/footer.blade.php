@@ -71,6 +71,7 @@
                         <span>All Site Content TM and &#169; 2020 DC Entertainment, unless otherwise <a href="#null">noted here.</a> All rights reserved. <a href="#null">Cookies Settings.</a></span>
                     </div>
                 </div>
+                <div class="col"></div>
                 
             </div>
         </div>
