@@ -18,12 +18,8 @@ use App\Http\Controllers\ComicController as ComicController;
 */
 
 
-// COMICS
-
-Route::get('/comics/{slug}', [ComicController::class, 'detailComics'])->name('detail-comics');
-
-// HOMEPAGE
-
 Route::get('/', [PagesController::class, 'index'])->name('homepage');
+
+Route::resources('comics', ComicController::class);
 
 
