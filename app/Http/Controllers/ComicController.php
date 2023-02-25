@@ -27,7 +27,9 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        $icon = config('db.icon');
+        $social = config('db.social');
+        return view('comics.create', compact('comics', 'icon', 'social'));
     }
 
     /**
