@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Laravel | Comics')    
+@section('title')    
 @section('content')
 
 <div class="black-bg">

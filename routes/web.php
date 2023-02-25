@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-// richiamo il CONTROLLER
 
+use App\Http\Controllers\PagesController as PagesController;
 use App\Http\Controllers\ComicController as ComicController;
 
 /*
@@ -20,6 +20,6 @@ use App\Http\Controllers\ComicController as ComicController;
 
 Route::get('/', [PagesController::class, 'index'])->name('homepage');
 
-Route::resources('comics', ComicController::class);
+Route::resource('comics', ComicController::class);
 
 

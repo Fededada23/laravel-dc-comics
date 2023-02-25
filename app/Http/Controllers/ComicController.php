@@ -17,7 +17,7 @@ class ComicController extends Controller
         $comics = Comic::all();
         $icon = config('db.icon');
         $social = config('db.social');
-        return view('comics.index', compact('comics', 'icon', 'social'));
+        return view('comic.index', compact('comics', 'icon', 'social'));
     }
 
     /**
@@ -29,7 +29,7 @@ class ComicController extends Controller
     {
         $icon = config('db.icon');
         $social = config('db.social');
-        return view('comics.create', compact('comics', 'icon', 'social'));
+        return view('comic.create', compact('comics', 'icon', 'social'));
     }
 
     /**
@@ -40,7 +40,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newComic = new Comic();
+
+        $newComic->title = $data['title'];
+        $newComic->description = $data['description'];
+        $newComic->thumb = $data['thumb'];
+        $newComic->price = $data['price'];
+        $newComic->series = $data['series'];
+        $newComic->type = $data['type'];
+        $newComic->save();
+        return redirect()->route('comic.show', ['comic' => $newComic-> id]);
     }
 
     /**
@@ -51,7 +60,10 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $icon = config('db.icon');
+        $social = config('db.social');
+        return view('comic.show', compact('comic', 'icon', 'social'));
     }
 
     /**
