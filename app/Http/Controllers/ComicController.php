@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Comic as Comic;
 
@@ -29,7 +28,7 @@ class ComicController extends Controller
     {
         $icon = config('db.icon');
         $social = config('db.social');
-        return view('comic.create', compact('comics', 'icon', 'social'));
+        return view('comic.create', compact('icon', 'social'));
     }
 
     /**
@@ -74,7 +73,10 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comics = Comic::findOrFail($id);
+        $icon = config('db.icon');
+        $social = config('db.social');
+        return view('comic.edit', compact('comics', 'icon', 'social'));
     }
 
     /**
