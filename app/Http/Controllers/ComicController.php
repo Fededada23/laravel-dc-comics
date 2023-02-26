@@ -89,7 +89,7 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id);
         $data = $this->validation($request->all());
         $comic->update($data);
-        return redirect()->route('comic.show', ['comic' => $comic-> id]);
+        return redirect()->route('comics.show', ['comic' => $comic-> id]);
     }
 
     /**

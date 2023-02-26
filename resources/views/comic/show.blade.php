@@ -13,6 +13,11 @@
                     </a>
                 </div>
             </div>
+            <div class="col d-flex justify-content-end">
+                <a href="{{route('comics.edit', ['comic' => $comic['id']])}}">
+                    <button type="button" class="btn btn-warning">Modifica</button>
+                </a>
+            </div>    
         </div>
     </div>
 </div>

@@ -15,47 +15,47 @@
                     </div>
                 @endif
                 
-                <form action="{{route('comics.update', $comic->id)}}" method="POST">
+                <form action="{{route('comics.update', $comics->id)}}" method="POST">
                     @csrf 
                     @method('PUT')
                     <div class="form-group my-2">
-                        <label for="titolo" class="fs-4 my-2">titolo</label>
-                        <input  class="form-control" type="text" name="titolo" id="titolo" value="{{old('titolo') ?? $comic->titolo}}">
-                        @error('titolo')
+                        <label for="title" class="fs-4 my-2">titolo</label>
+                        <input  class="form-control" type="text" name="title" id="titolo" value="{{old('title') ?? $comics->title}}">
+                        @error('title')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-2">
-                        <label for="descrizione" class="fs-4 my-2">descrizione</label>
-                        <textarea  class="form-control" type="text" name="descrizione" id="descrizione" rows="4" value="{{old('descrizione') ?? $comic->descrizione}}"></textarea>
-                        @error('descrizione')
+                        <label for="description" class="fs-4 my-2">descrizione</label>
+                        <textarea  class="form-control" type="text" name="description" id="descrizione" rows="4" value="{{old('description') ?? $comics->description}}"></textarea>
+                        @error('description')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-2">
                         <label for="immagine" class="fs-4 my-2">thumb</label>
-                        <input  class="form-control" type="text" name="thumb" id="immagine" value="{{old('thumb') ?? $comic->thumb}}">
+                        <input  class="form-control" type="text" name="thumb" id="immagine" value="{{old('thumb') ?? $comics->thumb}}">
                         @error('thumb')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-2">
-                        <label for="prezzo" class="fs-4 my-2">prezzo</label>
-                        <input  class="form-control" type="text" name="prezzo" id="prezzo" value="{{old('prezzo') ?? $comic->prezzo}}">
-                        @error('prezzo')
+                        <label for="price" class="fs-4 my-2">prezzo</label>
+                        <input  class="form-control" type="text" name="price" id="prezzo" value="{{old('price') ?? $comics->price}}">
+                        @error('price')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-2">
-                        <label for="serie" class="fs-4 my-2">serie</label>
-                        <input  class="form-control" type="text" name="serie" id="serie" value="{{old('serie') ?? $comic->serie}}">
-                        @error('serie')
+                        <label for="series" class="fs-4 my-2">serie</label>
+                        <input  class="form-control" type="text" name="series" id="serie" value="{{old('series') ?? $comics->series}}">
+                        @error('series')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group my-2">
                         <label for="tipo" class="fs-4 my-2">type</label>
-                        <input  class="form-control" type="text" name="type" id="tipo" value="{{old('type') ?? $comic->type}}">
+                        <input  class="form-control" type="text" name="type" id="tipo" value="{{old('type') ?? $comics->type}}">
                         @error('type')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
