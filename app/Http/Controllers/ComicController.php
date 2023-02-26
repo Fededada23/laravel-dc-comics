@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comic as Comic;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -39,16 +41,11 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $this->validation($request->all());
         $newComic = new Comic();
-
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->type = $data['type'];
+        $newComic->fill($data);
         $newComic->save();
-        return redirect()->route('comic.show', ['comic' => $newComic-> id]);
+        return redirect()->route('comics.show', ['comic' => $newComic-> id]);
     }
 
     /**
@@ -88,7 +85,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $comic = Comic::findOrFail($id);
+        $data = $this->validation($request->all());
+        $comic->update($data);
+        return redirect()->route('comic.show', ['comic' => $comic-> id]);
     }
 
     /**
@@ -99,6 +100,30 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+        return redirect()->route('comic.index');
     }
+    //bonus1
+    private function validation($data){
+        $validator = Validator::make($data, [
+            'title'=>'required',
+            'description'=>'required',
+            'thumb'=>'required',
+            'price'=>'required',
+            'series'=>'required',
+            'type'=>'required',
+        ],
+        [
+            'title.required'=> 'Il titolo è obbligatorio',
+            'description.required'=>'La descrizione è obbligatoria',
+            'thumb.required'=>'La foto è obbligatoria',
+            'price.required'=>'Il prezzo è obbligatorio',
+            'series.required'=>'La serie è obbligatoria',
+            'type.required'=>'Il tipo è obbligatorio',
+        ])->validate();
+
+        return $validator;
+    }
+
 }
